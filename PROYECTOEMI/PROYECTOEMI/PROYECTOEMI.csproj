@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-PROYECTOEMI-BED53A11-0B15-49E5-BC40-FA0FAED1BEE5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\wwwroot\**" />
+    <Content Remove="Views\wwwroot\**" />
+    <EmbeddedResource Remove="Views\wwwroot\**" />
+    <None Remove="Views\wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200926055553_MigracionProductos.cs" />
+    <Compile Remove="Data\Migrations\20200926055553_MigracionProductos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200926062144_ProductosMiracion.cs" />
+    <Compile Remove="Data\Migrations\20200926062144_ProductosMiracion.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200926062413_MigracionProductos.cs" />
+    <Compile Remove="Data\Migrations\20200926062413_MigracionProductos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200927080233_ActBD.cs" />
+    <Compile Remove="Data\Migrations\20200927080233_ActBD.Designer.cs" />
+    <Compile Remove="Models\AspNetRoleClaims.cs" />
+    <Compile Remove="Models\AspNetRoles.cs" />
+    <Compile Remove="Models\AspNetUserClaims.cs" />
+    <Compile Remove="Models\AspNetUserLogins.cs" />
+    <Compile Remove="Models\AspNetUserRoles.cs" />
+    <Compile Remove="Models\AspNetUsers.cs" />
+    <Compile Remove="Models\AspNetUserTokens.cs" />
+    <Compile Remove="Models\Data.cs" />
+    <Compile Remove="Models\Gustos.cs" />
+    <Compile Remove="Models\Persona.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Compras\Data\" />
+    <Folder Include="Areas\Empleados\Data\" />
+    <Folder Include="Areas\Facturas\Data\" />
+    <Folder Include="Areas\Productos\Data\" />
+  </ItemGroup>
+
+</Project>

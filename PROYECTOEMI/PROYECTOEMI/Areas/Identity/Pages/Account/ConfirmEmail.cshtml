@@ -1,0 +1,47 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Correo electronico Confirmado, Ya Puedes Ingresar";
+}
+<br />
+<br />
+<br />
+<br />
+<center>
+
+    <section id="abouts" class="abouts">
+        <div class="container">
+            <div class="row">
+                <div class="abouts_content">
+                    <h1>
+                        @ViewData["Title"]
+                </h1>
+                    <ul>
+
+                        @using Microsoft.AspNetCore.Identity
+                        @inject SignInManager<IdentityUser> SignInManager
+                        @inject UserManager<IdentityUser> UserManager
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hola @User.Identity.Name!</a>
+                            </li>
+                            <li>
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit">CERRAR SESIÓN</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                    <li>
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Login">
+                            <button type="submit">INICIAR SESION</button>
+                        </form>
+                    </li>
+                            
+                            
+                        }
+                    </ul>
+

@@ -1,0 +1,65 @@
+﻿
+@model Empleado
+<center>
+    <section id="abouts" class="abouts">
+        <div class="container">
+            <div class="row">
+                <div class="abouts_content">
+                    <form method="post" action="/Empleados/Empleado/Guardar" enctype="multipart/form-data">
+                        <h4>Modificar Empleado</h4>
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="EmpleadoId"></label>
+                            <input asp-for="EmpleadoId" class="form-control" />
+                            <span asp-validation-for="EmpleadoId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NombreEmpleado"></label>
+                            <input asp-for="NombreEmpleado" class="form-control" />
+                            <span asp-validation-for="NombreEmpleado" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Apellido"></label>
+                            <input asp-for="Apellido" class="form-control" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Direccion"></label>
+                            <input asp-for="Direccion" class="form-control" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Telefono"></label>
+                            <input asp-for="Telefono" class="form-control" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ImagenCarga"></label>
+                            <input asp-for="ImagenCarga" type="file" class="form-control" />
+                            <span asp-validation-for="ImagenCarga" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Estado"></label>
+                            <input asp-for="Estado" class="form-control" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modificar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

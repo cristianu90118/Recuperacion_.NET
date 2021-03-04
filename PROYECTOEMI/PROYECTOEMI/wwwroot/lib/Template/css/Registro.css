@@ -1,0 +1,26 @@
+﻿
+.bigicon {
+    font-size: 35px;
+    color: #f90e0b;
+}
+
+.input {
+    width: 10000px;
+}
+
+.ingresar {
+    font-family: 'Courgette', cursive;
+    font-size: 300%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.formulario {
+    background-color:;
+    border-color: #00001F;
+    border-width: 5px;
+    border-style: solid;
+    border-style: double;
+    width: 100%;
+}

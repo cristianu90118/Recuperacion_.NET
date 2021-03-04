@@ -1,0 +1,64 @@
+﻿@model DataPaginador<Factura>
+<br />
+<br />
+<br />
+<br />
+<br />
+<center>
+    <section id="abouts" class="abouts">
+        <div class="container">
+            <div class="row">
+                <div class="abouts_content">
+                    <h1>Hola VENTAS</h1>
+                    <a href="/Ventas/Venta/Crear">Crear</a>
+                    <form action="/Ventas/Venta" method="get">
+                        <div style="width: 30%">
+
+                            <select name="Registros">
+                                <option>2</option>
+                                <option>4</option>
+                                <option>8</option>
+                            </select>
+                            <input type="search" name="Search" class="" />
+                            <button type="submit" class="arrow">Buscar</button>
+                        </div>
+
+                    </form>
+
+
+                    <table class="table mt-3" border="1">
+                        <th>Codigo Factura</th>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Iva</th>
+                        <th>Total</th>
+                        <th>Pago</th>
+                        <th>Estado</th>
+                        <th>Editar</th>
+                        <th>Opciones</th>
+
+                        <tbody>
+                            @foreach (Factura item in Model.Lista)
+                            {
+                                <tr>
+                                    <td>@item.NumFactura</td>
+                                    <td>@item.NombreFactura</td>
+                                    <td>@item.Fecha</td>
+                                    <td>@item.Iva</td>
+                                    <td>@item.Total</td>
+                                    <td>@item.IdPago</td>
+                                    <td>@Html.Raw(item.Estado ? "Activo" : "Inactivo")</td>
+                                    <td><a class="waves-effect waves-light btn" href="/Ventas/Venta/Editar/@item.NumFactura">Editar</a></td>
+                                    <td><a href="/Ventas/Venta/CambiarEstado/@item.NumFactura">@Html.Raw(item.Estado ? "Inactivar" : "Activar")</a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                    @Html.Raw(Model.Pagi_info)
+                    @Html.Raw(Model.Pagi_navegacion)
+                </div>
+            </div>
+        </div>
+    </section>
+</center>

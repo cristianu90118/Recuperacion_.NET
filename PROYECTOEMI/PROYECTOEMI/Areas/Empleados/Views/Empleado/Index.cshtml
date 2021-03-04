@@ -1,0 +1,63 @@
+﻿@model DataPaginador<Empleado>
+<br />
+<br />
+<br />
+<br />
+<br />
+<section id="abouts" class="abouts">
+    <div class="container">
+        <div class="row">
+            <div class="abouts_content">
+                <h1>Hola Empleados</h1>
+                <a href="/Empleados/Empleado/Crear">Crear</a>
+
+                <form action="/Empleados/Empleado" method="get">
+                    <div style="width: 30%">
+
+                        <select name="Registros">
+                            <option>2</option>
+                            <option>4</option>
+                            <option>8</option>
+                        </select>
+                        <input type="search" name="Search" class="" />
+                        <button type="submit" class="arrow">Buscar</button>
+                    </div>
+
+                </form>
+
+
+                <table class="table mt-3" border="1">
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Imagen</th>
+                    <th>Estado</th>
+                    <th>Editar</th>
+                    <th>Opciones</th>
+
+
+                    <tbody>
+                        @foreach (Empleado item in Model.Lista)
+                        {
+                        <tr>
+                            <td>@item.EmpleadoId</td>
+                            <td>@item.NombreEmpleado</td>
+                            <td>@item.Apellido</td>
+                            <td>@item.Direccion</td>
+                            <td>@item.Telefono</td>
+                            <td><img src="/uploads/@item.Imagen" width="100" /></td>
+                            <td>@Html.Raw(item.Estado ? "Activo" : "Inactivo")</td>
+                            <td><a href="/Productos/Producto/Editar/@item.EmpleadoId">Editar</a></td>
+                            <td><a href="/Productos/Producto/CambiarEstado/@item.EmpleadoId">@Html.Raw(item.Estado ? "Inactivar" : "Activar")</a></td>
+                        </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+                @Html.Raw(Model.Pagi_info)
+                @Html.Raw(Model.Pagi_navegacion)
+
+

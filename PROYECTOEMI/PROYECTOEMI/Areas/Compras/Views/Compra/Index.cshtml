@@ -1,0 +1,88 @@
+﻿@model List<Producto>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="card col-span-12">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Productos</label>
+                        <select onchange="precio(this)" id="ProductoId" class="form-control" style="width:500px">
+                            <option>Seleccione</option>
+                            @foreach(Producto item in Model)
+                            {
+                                <option Precio="@item.Precio" value="@item.ProductoId">@item.NombreProducto</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Precio</label>
+                        <input readonly type="number" class="form-control" id="Precio" />
+                    </div>
+                    <button onclick="agregar()" class="btn btn-success" type="button">Agregar</button>
+                    <div class="col-8">
+                        <center>
+                            <form action="/Compras/Compra/Guardar" method="post">
+                                <table id="TablaProducto" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Código Producto</th>
+                                            <th>Nombre Producto</th>
+                                            <th>Precio Producto</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                <h3>Total: <span id="total"></span></h3>
+                                                <input type="hidden" name="Total" id="Total"  />
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <button type="submit" class="btn btn-success" btn-block>Guardar</button>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            function precio(e) {
+                let _precio = $(e).find("option:selected");
+                $("#Precio").val(_precio.attr("precio"));
+            }
+            var cont = 0;
+            function agregar() {
+                let producto = $("#ProductoId option:selected");
+                let total = $("#Total").val() || 0;
+                $("#TablaProducto").append(`
+                            <tr>
+                               
+                                <td>
+                                 <input type="hidden" name="Productos[${cont}].CursoId" value=${producto.val()}">
+                                 ${producto.val()}
+                                </td>
+                                <td>${producto.text()}</td>
+                                <td>${producto.attr("precio")}</td>
+                            </td>
+                         `);
+                let suma = parseInt(total) + parseInt(producto.attr("precio"));
+
+                $("#total").text(suma);
+                $("#Total").val(suma);
+                cont++;
+            }
+        </script>
+    }

@@ -1,0 +1,71 @@
+﻿
+@model Factura
+<center>
+    <section id="abouts" class="abouts">
+        <div class="container">
+            <div class="row">
+                <div class="abouts_content">
+                    <form method="post" action="/Facturas/Factura/Guardar" enctype="multipart/form-data">
+                        <h4>Crear Factura</h4>
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="NumFactura"></label>
+                            <input asp-for="NumFactura" class="form-control" />
+                            <span asp-validation-for="NumFactura" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NombreFactura"></label>
+                            <input asp-for="NombreFactura" class="form-control" />
+                            <span asp-validation-for="NombreFactura" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Fecha"></label>
+                            <input asp-for="Fecha" class="form-control" type="date" />
+                            <span asp-validation-for="Fecha" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Iva"></label>
+                            <input asp-for="Iva" class="form-control" />
+                            <span asp-validation-for="Iva" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Total"></label>
+                            <input asp-for="Total" class="form-control" />
+                            <span asp-validation-for="Total" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IdPago"></label>
+                            <select asp-for="IdPago" class="form-control">
+                                <option>Seleccione</option>
+                                @foreach (Pago item in Model.Pagos)
+                                {
+                                    <option value="@item.IdPago">@item.TipoPago</option>
+                                }
+                            </select>
+                            <span asp-validation-for="IdPago" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Estado"></label>
+                            <input asp-for="Estado" class="form-control" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
